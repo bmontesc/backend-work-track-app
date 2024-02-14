@@ -3,11 +3,14 @@ const express = require('express')
 const app = express()
 const port = process.env.PORT || 3001
 
-// const data = require('./api/data')
 const mysql = require('mysql2')
 const connection = mysql.createConnection(process.env.DATABASE_URL);
 
 connection.connect()
+
+app.get('/', (req, res) => {
+  res.send('<h1>Hello World</h1>')
+})
 
 app.get('/api/accountants', (req, res) => {
   connection.query('SELECT * FROM Accountants', function (err, rows, fields) {
