@@ -52,7 +52,7 @@ const verifyPassword = async (user, password,res) => {
     const passwordCorrect = user === null ? false : await bcrypt.compare(password, user.password)
 
     if (!(passwordCorrect && user)) {
-        res.status(401).send('Usuario o contraseña inválidos')
+        res.status(401).send({message: 'Usuario o contraseña inválidos'})
     } else {
         const userForToken = {
             id: user.id,
