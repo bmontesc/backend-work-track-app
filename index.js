@@ -18,7 +18,6 @@ app.use('/api', apiRouter)
 app.use('/api/tasks', tasksRouter)
 app.use('/api/users', usersRouter)
 
-
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
 })
