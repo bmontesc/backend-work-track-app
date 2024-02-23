@@ -4,6 +4,7 @@ const cors = require('cors')
 const apiRouter = require('./controllers/api')
 const tasksRouter = require('./controllers/tasks')
 const usersRouter = require('./controllers/users')
+const rankingsRouter = require('./controllers/rankings')
 
 const port = process.env.PORT || 3001
 const app = express()
@@ -17,6 +18,7 @@ app.get('/', (req, res) => {
 app.use('/api', apiRouter)
 app.use('/api/tasks', tasksRouter)
 app.use('/api/users', usersRouter)
+app.use('/api/rankings', rankingsRouter)
 
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
