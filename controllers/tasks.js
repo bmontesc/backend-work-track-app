@@ -14,8 +14,7 @@ tasksRouter.get('/year/:year/quarter/:quarter', (req, res)=>{
         FROM (SELECT * FROM Plans WHERE year=? AND quarter=?) AS P
         LEFT JOIN (SELECT * FROM Tasks) AS T ON T.plan_id=P.id
         LEFT JOIN (SELECT * FROM Accountants) AS A ON T.accountant_id=A.id
-        LEFT JOIN (SELECT * FROM Companies) AS C ON P.company_id=C.id`
-        ,
+        LEFT JOIN (SELECT * FROM Companies) AS C ON P.company_id=C.id`,
         [year, quarter],
         function (err, rows, fields) {
           if(rows) {
